@@ -27,7 +27,7 @@ module Ginatra
         puts "Cannot parse your config file #{ex.message}."
         custom_config = {}
       end
-      final_config.merge!(custom_config)
+      final_config.merge!(custom_config || {})
     else
       puts "User config file #{custom_config_file} absent. Will only see repos in #{final_config["git_dirs"].join(", ")}."
     end
